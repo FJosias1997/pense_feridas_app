@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:victoria_form/cirurgico_model.dart';
-import 'package:victoria_form/conduta1.dart';
-import 'package:victoria_form/conduta2.dart';
-import 'package:victoria_form/conduta3.dart';
-import 'package:victoria_form/conduta4.dart';
-import 'package:victoria_form/conduta5.dart';
-import 'package:victoria_form/conduta6.dart';
-import 'package:victoria_form/conduta7.dart';
-import 'package:victoria_form/conduta8.dart';
-import 'package:victoria_form/conduta9.dart';
-import 'package:victoria_form/conduta10.dart';
-import 'package:victoria_form/conduta11.dart';
-import 'package:victoria_form/conduta12.dart';
-import 'package:victoria_form/conduta13.dart';
+import 'package:victoria_form/database/models/cirurgico_model.dart';
+import 'package:victoria_form/pages/ficha/widgets/conduta1.dart';
+import 'package:victoria_form/pages/ficha/widgets/conduta2.dart';
+import 'package:victoria_form/pages/ficha/widgets/conduta3.dart';
+import 'package:victoria_form/pages/ficha/widgets/conduta4.dart';
+import 'package:victoria_form/pages/ficha/widgets/conduta5.dart';
+import 'package:victoria_form/pages/ficha/widgets/conduta6.dart';
+import 'package:victoria_form/pages/ficha/widgets/conduta7.dart';
+import 'package:victoria_form/pages/ficha/widgets/conduta8.dart';
+import 'package:victoria_form/pages/ficha/widgets/conduta9.dart';
+import 'package:victoria_form/pages/ficha/widgets/conduta10.dart';
+import 'package:victoria_form/pages/ficha/widgets/conduta11.dart';
+import 'package:victoria_form/pages/ficha/widgets/conduta12.dart';
+import 'package:victoria_form/pages/ficha/widgets/conduta13.dart';
 
 class FichaPage extends StatefulWidget {
   final CirurgicoModel? cirurgico;
@@ -27,9 +27,7 @@ class _FichaPageState extends State<FichaPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Ficha do Paciente"),
-      ),
+      appBar: AppBar(title: Text("Ficha do Paciente")),
       body: Material(
         child: SingleChildScrollView(
           child: SizedBox(
@@ -51,9 +49,10 @@ class _FichaPageState extends State<FichaPage> {
                                 child: Text(
                                   "Nome do Paciente:",
                                   style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 17,
-                                      decoration: TextDecoration.underline),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 17,
+                                    decoration: TextDecoration.underline,
+                                  ),
                                 ),
                               ),
                               SizedBox(width: 20),
@@ -62,17 +61,16 @@ class _FichaPageState extends State<FichaPage> {
                                   child: Text(
                                     widget.cirurgico!.nomePaciente!,
                                     style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 17),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 17,
+                                    ),
                                   ),
                                 ),
                               ),
                             ],
                           ),
                         ),
-                        SizedBox(
-                          height: 20,
-                        ), //final da primeira row
+                        SizedBox(height: 20), //final da primeira row
                         Container(
                           //segunda row
                           child: Row(
@@ -81,9 +79,10 @@ class _FichaPageState extends State<FichaPage> {
                                 child: Text(
                                   "Data de Nascimento:",
                                   style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 17,
-                                      decoration: TextDecoration.underline),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 17,
+                                    decoration: TextDecoration.underline,
+                                  ),
                                 ),
                               ),
                               SizedBox(width: 20),
@@ -92,8 +91,9 @@ class _FichaPageState extends State<FichaPage> {
                                   child: Text(
                                     widget.cirurgico!.dataNascimento!,
                                     style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 17),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 17,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -109,9 +109,10 @@ class _FichaPageState extends State<FichaPage> {
                                 child: Text(
                                   "Tempo de Internação:",
                                   style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 17,
-                                      decoration: TextDecoration.underline),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 17,
+                                    decoration: TextDecoration.underline,
+                                  ),
                                 ),
                               ),
                               SizedBox(width: 20),
@@ -120,8 +121,9 @@ class _FichaPageState extends State<FichaPage> {
                                   child: Text(
                                     widget.cirurgico!.tempoInternacao!,
                                     style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 17),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 17,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -137,9 +139,10 @@ class _FichaPageState extends State<FichaPage> {
                                 child: Text(
                                   "Comorbidades:",
                                   style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 17,
-                                      decoration: TextDecoration.underline),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 17,
+                                    decoration: TextDecoration.underline,
+                                  ),
                                 ),
                               ),
                               SizedBox(width: 20),
@@ -148,8 +151,9 @@ class _FichaPageState extends State<FichaPage> {
                                   child: Text(
                                     widget.cirurgico!.comorbidades!,
                                     style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 17),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 17,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -165,9 +169,10 @@ class _FichaPageState extends State<FichaPage> {
                                 child: Text(
                                   "Fatores de Risco:",
                                   style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 17,
-                                      decoration: TextDecoration.underline),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 17,
+                                    decoration: TextDecoration.underline,
+                                  ),
                                 ),
                               ),
                               SizedBox(width: 20),
@@ -176,8 +181,9 @@ class _FichaPageState extends State<FichaPage> {
                                   child: Text(
                                     widget.cirurgico!.fatoresRisco!,
                                     style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 17),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 17,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -193,9 +199,10 @@ class _FichaPageState extends State<FichaPage> {
                                 child: Text(
                                   "Classificação:",
                                   style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 17,
-                                      decoration: TextDecoration.underline),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 17,
+                                    decoration: TextDecoration.underline,
+                                  ),
                                 ),
                               ),
                               SizedBox(width: 20),
@@ -204,8 +211,9 @@ class _FichaPageState extends State<FichaPage> {
                                   child: Text(
                                     widget.cirurgico!.classificacao!,
                                     style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 17),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 17,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -221,9 +229,10 @@ class _FichaPageState extends State<FichaPage> {
                                 child: Text(
                                   "Complexidade:",
                                   style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 17,
-                                      decoration: TextDecoration.underline),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 17,
+                                    decoration: TextDecoration.underline,
+                                  ),
                                 ),
                               ),
                               SizedBox(width: 20),
@@ -232,8 +241,9 @@ class _FichaPageState extends State<FichaPage> {
                                   child: Text(
                                     widget.cirurgico!.complexidade!,
                                     style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 17),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 17,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -252,9 +262,10 @@ class _FichaPageState extends State<FichaPage> {
                           child: Text(
                             "Localização:",
                             style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 17,
-                                decoration: TextDecoration.underline),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 17,
+                              decoration: TextDecoration.underline,
+                            ),
                           ),
                         ),
                         SizedBox(width: 20),
@@ -263,7 +274,9 @@ class _FichaPageState extends State<FichaPage> {
                             child: Text(
                               widget.cirurgico!.localizacao!,
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 17),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 17,
+                              ),
                             ),
                           ),
                         ),
@@ -279,9 +292,10 @@ class _FichaPageState extends State<FichaPage> {
                           child: Text(
                             "Exsudato:",
                             style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 17,
-                                decoration: TextDecoration.underline),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 17,
+                              decoration: TextDecoration.underline,
+                            ),
                           ),
                         ),
                         SizedBox(width: 20),
@@ -290,7 +304,9 @@ class _FichaPageState extends State<FichaPage> {
                             child: Text(
                               widget.cirurgico!.exsudato!,
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 17),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 17,
+                              ),
                             ),
                           ),
                         ),
@@ -306,9 +322,10 @@ class _FichaPageState extends State<FichaPage> {
                           child: Text(
                             "Volume de Exsudato:",
                             style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 17,
-                                decoration: TextDecoration.underline),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 17,
+                              decoration: TextDecoration.underline,
+                            ),
                           ),
                         ),
                         SizedBox(width: 20),
@@ -317,7 +334,9 @@ class _FichaPageState extends State<FichaPage> {
                             child: Text(
                               widget.cirurgico!.volumeexsudato!,
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 17),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 17,
+                              ),
                             ),
                           ),
                         ),
@@ -333,9 +352,10 @@ class _FichaPageState extends State<FichaPage> {
                           child: Text(
                             "Tecidos:",
                             style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 17,
-                                decoration: TextDecoration.underline),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 17,
+                              decoration: TextDecoration.underline,
+                            ),
                           ),
                         ),
                         SizedBox(width: 20),
@@ -344,7 +364,9 @@ class _FichaPageState extends State<FichaPage> {
                             child: Text(
                               widget.cirurgico!.tecidos!,
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 17),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 17,
+                              ),
                             ),
                           ),
                         ),
@@ -360,9 +382,10 @@ class _FichaPageState extends State<FichaPage> {
                           child: Text(
                             "Bordas:",
                             style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 17,
-                                decoration: TextDecoration.underline),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 17,
+                              decoration: TextDecoration.underline,
+                            ),
                           ),
                         ),
                         SizedBox(width: 20),
@@ -371,7 +394,9 @@ class _FichaPageState extends State<FichaPage> {
                             child: Text(
                               widget.cirurgico!.bordas!,
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 17),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 17,
+                              ),
                             ),
                           ),
                         ),
@@ -387,9 +412,10 @@ class _FichaPageState extends State<FichaPage> {
                           child: Text(
                             "Comprimento:",
                             style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 17,
-                                decoration: TextDecoration.underline),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 17,
+                              decoration: TextDecoration.underline,
+                            ),
                           ),
                         ),
                         SizedBox(width: 20),
@@ -398,7 +424,9 @@ class _FichaPageState extends State<FichaPage> {
                             child: Text(
                               widget.cirurgico!.comprimento!,
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 17),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 17,
+                              ),
                             ),
                           ),
                         ),
@@ -414,9 +442,10 @@ class _FichaPageState extends State<FichaPage> {
                           child: Text(
                             "Profundidade:",
                             style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 17,
-                                decoration: TextDecoration.underline),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 17,
+                              decoration: TextDecoration.underline,
+                            ),
                           ),
                         ),
                         SizedBox(width: 20),
@@ -425,7 +454,9 @@ class _FichaPageState extends State<FichaPage> {
                             child: Text(
                               widget.cirurgico!.profundidade!,
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 17),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 17,
+                              ),
                             ),
                           ),
                         ),
@@ -441,9 +472,10 @@ class _FichaPageState extends State<FichaPage> {
                           child: Text(
                             "Sinais de Infecção:",
                             style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 17,
-                                decoration: TextDecoration.underline),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 17,
+                              decoration: TextDecoration.underline,
+                            ),
                           ),
                         ),
                         SizedBox(width: 20),
@@ -452,7 +484,9 @@ class _FichaPageState extends State<FichaPage> {
                             child: Text(
                               widget.cirurgico!.sinaisInfeccao!,
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 17),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 17,
+                              ),
                             ),
                           ),
                         ),
@@ -468,9 +502,10 @@ class _FichaPageState extends State<FichaPage> {
                           child: Text(
                             "Dor:",
                             style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 17,
-                                decoration: TextDecoration.underline),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 17,
+                              decoration: TextDecoration.underline,
+                            ),
                           ),
                         ),
                         SizedBox(width: 20),
@@ -479,7 +514,9 @@ class _FichaPageState extends State<FichaPage> {
                             child: Text(
                               widget.cirurgico!.dor!,
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 17),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 17,
+                              ),
                             ),
                           ),
                         ),
@@ -489,9 +526,7 @@ class _FichaPageState extends State<FichaPage> {
                   ),
                   SizedBox(height: 20),
                   //onde vou editar
-                  Container(
-                    child: _buildResult(),
-                  ),
+                  Container(child: _buildResult()),
                 ],
               ),
             ),

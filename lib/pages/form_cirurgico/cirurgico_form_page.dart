@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:victoria_form/database_provider.dart';
+import 'package:victoria_form/database/provider/database_provider.dart';
 
-import 'avaliacaoferidas.dart';
-import 'complicacoes.dart';
-import 'conceitos.dart';
+import '../avaliacao_feridas/avaliacao_feridas_page.dart';
+import '../complicacoes/complicacoes_page.dart';
+import '../conceitos/conceitos_page.dart';
 
 class CirurgicoPage extends StatefulWidget {
   const CirurgicoPage({Key? key}) : super(key: key);
@@ -67,20 +67,21 @@ class _CirurgicoPageState extends State<CirurgicoPage> {
                 // ),
                 shape: BoxShape.rectangle,
               ),
-              child: Text('Pense Feridas',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20)),
+              child: Text(
+                'Pense Feridas',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                ),
+              ),
             ),
             ListTile(
               title: const Text('Conceitos e Classificações'),
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => ConceitosPage(),
-                  ),
+                  MaterialPageRoute(builder: (context) => ConceitosPage()),
                 );
               },
             ),
@@ -89,9 +90,7 @@ class _CirurgicoPageState extends State<CirurgicoPage> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => ComplicacoesPage(),
-                  ),
+                  MaterialPageRoute(builder: (context) => ComplicacoesPage()),
                 );
               },
             ),
@@ -126,17 +125,18 @@ class _CirurgicoPageState extends State<CirurgicoPage> {
               title: const Text('Sobre'),
               onTap: () {
                 showAboutDialog(
-                    context: context,
-                    children: <Widget>[
-                      SizedBox(height: 10),
-                      Text(
-                          'Este aplicativo foi feito com o objetivo de gerar facilidades para os enfermeiros que atuam no cuidado com feridas cirúrgicas complexas.'),
-                    ],
-                    applicationIcon: FlutterLogo(),
-                    applicationName: 'Sobre o Pense Feridas',
-                    applicationVersion: '1.0.0',
-                    applicationLegalese:
-                        'Desenvolvido por Josias Félix Studios');
+                  context: context,
+                  children: <Widget>[
+                    SizedBox(height: 10),
+                    Text(
+                      'Este aplicativo foi feito com o objetivo de gerar facilidades para os enfermeiros que atuam no cuidado com feridas cirúrgicas complexas.',
+                    ),
+                  ],
+                  applicationIcon: FlutterLogo(),
+                  applicationName: 'Sobre o Pense Feridas',
+                  applicationVersion: '1.0.0',
+                  applicationLegalese: 'Desenvolvido por Josias Félix Studios',
+                );
               },
             ),
           ],
@@ -153,20 +153,19 @@ class _CirurgicoPageState extends State<CirurgicoPage> {
                   Container(
                     margin: const EdgeInsets.all(6.0),
                     decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.blueAccent,
-                        width: 3,
-                      ),
+                      border: Border.all(color: Colors.blueAccent, width: 3),
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    child: Text('Cadastro do Paciente',
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          backgroundColor: Colors.blueAccent,
-                          color: Colors.white,
-                        )),
+                    child: Text(
+                      'Cadastro do Paciente',
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        backgroundColor: Colors.blueAccent,
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
 
                   SizedBox(height: 20),
@@ -179,13 +178,12 @@ class _CirurgicoPageState extends State<CirurgicoPage> {
                       controller: nomePacienteController,
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
-                          labelText: 'Nome do Paciente',
-                          border: OutlineInputBorder()),
+                        labelText: 'Nome do Paciente',
+                        border: OutlineInputBorder(),
+                      ),
                     ),
                   ),
-                  SizedBox(
-                    height: 10,
-                  ),
+                  SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -198,13 +196,12 @@ class _CirurgicoPageState extends State<CirurgicoPage> {
                           controller: dataNascimentoController,
                           keyboardType: TextInputType.text,
                           decoration: InputDecoration(
-                              labelText: 'Data de Nascimento',
-                              border: OutlineInputBorder()),
+                            labelText: 'Data de Nascimento',
+                            border: OutlineInputBorder(),
+                          ),
                         ),
                       ),
-                      SizedBox(
-                        width: 40,
-                      ),
+                      SizedBox(width: 40),
                       Container(
                         width: MediaQuery.of(context).size.width * 0.4,
                         child: TextFormField(
@@ -214,15 +211,14 @@ class _CirurgicoPageState extends State<CirurgicoPage> {
                           controller: tempoInternacaoController,
                           keyboardType: TextInputType.text,
                           decoration: InputDecoration(
-                              labelText: 'Tempo de Internação',
-                              border: OutlineInputBorder()),
+                            labelText: 'Tempo de Internação',
+                            border: OutlineInputBorder(),
+                          ),
                         ),
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: 10,
-                  ),
+                  SizedBox(height: 10),
                   Container(
                     width: MediaQuery.of(context).size.width * 0.9,
                     child: TextFormField(
@@ -232,13 +228,12 @@ class _CirurgicoPageState extends State<CirurgicoPage> {
                       controller: comorbidadesController,
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
-                          labelText: 'Comorbidades',
-                          border: OutlineInputBorder()),
+                        labelText: 'Comorbidades',
+                        border: OutlineInputBorder(),
+                      ),
                     ),
                   ),
-                  SizedBox(
-                    height: 10,
-                  ),
+                  SizedBox(height: 10),
                   Container(
                     width: MediaQuery.of(context).size.width * 0.9,
                     child: TextFormField(
@@ -248,35 +243,31 @@ class _CirurgicoPageState extends State<CirurgicoPage> {
                       controller: fatoresRiscoController,
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
-                          labelText: 'Fatores de Risco',
-                          border: OutlineInputBorder()),
+                        labelText: 'Fatores de Risco',
+                        border: OutlineInputBorder(),
+                      ),
                     ),
                   ),
-                  SizedBox(
-                    height: 30,
-                  ),
+                  SizedBox(height: 30),
 
                   Container(
                     margin: const EdgeInsets.all(6.0),
                     decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.blueAccent,
-                        width: 3,
-                      ),
+                      border: Border.all(color: Colors.blueAccent, width: 3),
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    child: Text('Avaliação das Feridas',
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          backgroundColor: Colors.blueAccent,
-                          color: Colors.white,
-                        )),
+                    child: Text(
+                      'Avaliação das Feridas',
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        backgroundColor: Colors.blueAccent,
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
+                  SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -293,22 +284,21 @@ class _CirurgicoPageState extends State<CirurgicoPage> {
                               dropdownValueClassificacao = newValue1!;
                             });
                           },
-                          items: <String>[
-                            'Classificação',
-                            '-------------------------------------',
-                            'Primeira Intenção',
-                            'Segunda Intenção'
-                          ].map<DropdownMenuItem<String>>((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
+                          items:
+                              <String>[
+                                'Classificação',
+                                '-------------------------------------',
+                                'Primeira Intenção',
+                                'Segunda Intenção',
+                              ].map<DropdownMenuItem<String>>((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                );
+                              }).toList(),
                         ),
                       ),
-                      SizedBox(
-                        width: 20,
-                      ),
+                      SizedBox(width: 20),
                       Container(
                         child: DropdownButton<String>(
                           value: dropdownValueComplexidade,
@@ -322,27 +312,24 @@ class _CirurgicoPageState extends State<CirurgicoPage> {
                               dropdownValueComplexidade = newValue2!;
                             });
                           },
-                          items: <String>[
-                            'Complexidade',
-                            '--------',
-                            'Simples',
-                            'Complexa'
-                          ].map<DropdownMenuItem<String>>((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
+                          items:
+                              <String>[
+                                'Complexidade',
+                                '--------',
+                                'Simples',
+                                'Complexa',
+                              ].map<DropdownMenuItem<String>>((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                );
+                              }).toList(),
                         ),
                       ),
-                      SizedBox(
-                        width: 20,
-                      ),
+                      SizedBox(width: 20),
                     ],
                   ), // onde devo ir
-                  SizedBox(
-                    height: 10,
-                  ),
+                  SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -359,26 +346,25 @@ class _CirurgicoPageState extends State<CirurgicoPage> {
                               dropdownValueLA = newValue3!;
                             });
                           },
-                          items: <String>[
-                            'Localização Anatômica',
-                            '---------------------',
-                            'Crânio',
-                            'Tórax',
-                            'Abdômen',
-                            'Pelve',
-                            'MMSS',
-                            'MMII'
-                          ].map<DropdownMenuItem<String>>((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
+                          items:
+                              <String>[
+                                'Localização Anatômica',
+                                '---------------------',
+                                'Crânio',
+                                'Tórax',
+                                'Abdômen',
+                                'Pelve',
+                                'MMSS',
+                                'MMII',
+                              ].map<DropdownMenuItem<String>>((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                );
+                              }).toList(),
                         ),
                       ),
-                      SizedBox(
-                        width: 20,
-                      ),
+                      SizedBox(width: 20),
                       Container(
                         child: DropdownButton<String>(
                           value: dropdownValueExsudato,
@@ -392,31 +378,28 @@ class _CirurgicoPageState extends State<CirurgicoPage> {
                               dropdownValueExsudato = newValue4!;
                             });
                           },
-                          items: <String>[
-                            'Exsudato',
-                            '-----------',
-                            'Não',
-                            'Seroso',
-                            'Sanguinolento',
-                            'Purulento',
-                            'Piosanguinolento',
-                            'Fibrinoso'
-                          ].map<DropdownMenuItem<String>>((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
+                          items:
+                              <String>[
+                                'Exsudato',
+                                '-----------',
+                                'Não',
+                                'Seroso',
+                                'Sanguinolento',
+                                'Purulento',
+                                'Piosanguinolento',
+                                'Fibrinoso',
+                              ].map<DropdownMenuItem<String>>((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                );
+                              }).toList(),
                         ),
                       ),
-                      SizedBox(
-                        width: 20,
-                      ),
+                      SizedBox(width: 20),
                     ],
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
+                  SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -433,18 +416,19 @@ class _CirurgicoPageState extends State<CirurgicoPage> {
                               dropdownValuevolumeExsudato = newValue11!;
                             });
                           },
-                          items: <String>[
-                            'Volume de Exsudato',
-                            '-----------------',
-                            'Pouco (Até 5 Gazes Molhadas)',
-                            'Moderado (De 5 A 10 Gazes Molhadas)',
-                            'Acentuado (Mais De 10 Gazes Molhadas)'
-                          ].map<DropdownMenuItem<String>>((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
+                          items:
+                              <String>[
+                                'Volume de Exsudato',
+                                '-----------------',
+                                'Pouco (Até 5 Gazes Molhadas)',
+                                'Moderado (De 5 A 10 Gazes Molhadas)',
+                                'Acentuado (Mais De 10 Gazes Molhadas)',
+                              ].map<DropdownMenuItem<String>>((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                );
+                              }).toList(),
                         ),
                       ),
                     ],
@@ -465,28 +449,25 @@ class _CirurgicoPageState extends State<CirurgicoPage> {
                               dropdownValueTecidos = newValue5!;
                             });
                           },
-                          items: <String>[
-                            'Tecidos',
-                            '-----------',
-                            'Granulação',
-                            'Hipergranulação',
-                            'Necrose Seca',
-                            'Esfacelo'
-                          ].map<DropdownMenuItem<String>>((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
+                          items:
+                              <String>[
+                                'Tecidos',
+                                '-----------',
+                                'Granulação',
+                                'Hipergranulação',
+                                'Necrose Seca',
+                                'Esfacelo',
+                              ].map<DropdownMenuItem<String>>((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                );
+                              }).toList(),
                         ),
                       ),
-                      SizedBox(
-                        width: 20,
-                      ),
+                      SizedBox(width: 20),
 
-                      SizedBox(
-                        width: 20,
-                      ),
+                      SizedBox(width: 20),
                       Container(
                         child: DropdownButton<String>(
                           value: dropwdownValueBordas,
@@ -500,30 +481,29 @@ class _CirurgicoPageState extends State<CirurgicoPage> {
                               dropwdownValueBordas = newValue6!;
                             });
                           },
-                          items: <String>[
-                            'Bordas',
-                            '-----------',
-                            'Aderida',
-                            'Não Aderida',
-                            'Macerada',
-                            'Indistinta',
-                            'Hiperqueratosa',
-                            'Epibolia',
-                            'Fibrótica'
-                          ].map<DropdownMenuItem<String>>((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
+                          items:
+                              <String>[
+                                'Bordas',
+                                '-----------',
+                                'Aderida',
+                                'Não Aderida',
+                                'Macerada',
+                                'Indistinta',
+                                'Hiperqueratosa',
+                                'Epibolia',
+                                'Fibrótica',
+                              ].map<DropdownMenuItem<String>>((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                );
+                              }).toList(),
                         ),
                       ),
                       //agora
                     ],
                   ), // onde devo ir
-                  SizedBox(
-                    height: 10,
-                  ),
+                  SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -540,29 +520,26 @@ class _CirurgicoPageState extends State<CirurgicoPage> {
                               dropwdownValueComprimento = newValue7!;
                             });
                           },
-                          items: <String>[
-                            'Comprimento',
-                            '-------------',
-                            'Pequena (menor que 50cm2)',
-                            'Média (maior que 50cm2 e menor que 150cm2)',
-                            'Grande (maior que 150 cm2 emenor que 250 cm2)',
-                            'Extensa (maior que 250 cm2)'
-                          ].map<DropdownMenuItem<String>>((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
+                          items:
+                              <String>[
+                                'Comprimento',
+                                '-------------',
+                                'Pequena (menor que 50cm2)',
+                                'Média (maior que 50cm2 e menor que 150cm2)',
+                                'Grande (maior que 150 cm2 emenor que 250 cm2)',
+                                'Extensa (maior que 250 cm2)',
+                              ].map<DropdownMenuItem<String>>((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                );
+                              }).toList(),
                         ),
                       ),
-                      SizedBox(
-                        width: 20,
-                      ),
+                      SizedBox(width: 20),
                     ],
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
+                  SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -580,23 +557,22 @@ class _CirurgicoPageState extends State<CirurgicoPage> {
                               dropwdownValueProfundidade = newValue8!;
                             });
                           },
-                          items: <String>[
-                            'Profundidade',
-                            '------------',
-                            'Não Cavitária',
-                            'Cavitária',
-                            'Área de Descolamento'
-                          ].map<DropdownMenuItem<String>>((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
+                          items:
+                              <String>[
+                                'Profundidade',
+                                '------------',
+                                'Não Cavitária',
+                                'Cavitária',
+                                'Área de Descolamento',
+                              ].map<DropdownMenuItem<String>>((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                );
+                              }).toList(),
                         ),
                       ),
-                      SizedBox(
-                        width: 20,
-                      ),
+                      SizedBox(width: 20),
                       Container(
                         child: DropdownButton<String>(
                           value: dropwdownValueInfeccao,
@@ -610,26 +586,25 @@ class _CirurgicoPageState extends State<CirurgicoPage> {
                               dropwdownValueInfeccao = newValue9!;
                             });
                           },
-                          items: <String>[
-                            'Sinais de Infecção',
-                            '-----------',
-                            'Calor',
-                            'Rubor',
-                            'Edema',
-                            'Dor',
-                            'Febre',
-                            'Purulento'
-                          ].map<DropdownMenuItem<String>>((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
+                          items:
+                              <String>[
+                                'Sinais de Infecção',
+                                '-----------',
+                                'Calor',
+                                'Rubor',
+                                'Edema',
+                                'Dor',
+                                'Febre',
+                                'Purulento',
+                              ].map<DropdownMenuItem<String>>((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                );
+                              }).toList(),
                         ),
                       ),
-                      SizedBox(
-                        width: 20,
-                      ),
+                      SizedBox(width: 20),
                       Container(
                         child: DropdownButton<String>(
                           value: dropdownValueDor,
@@ -643,36 +618,41 @@ class _CirurgicoPageState extends State<CirurgicoPage> {
                               dropdownValueDor = newValue10!;
                             });
                           },
-                          items: <String>['Dor', '------', 'Sim', 'Não']
-                              .map<DropdownMenuItem<String>>((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
+                          items:
+                              <String>[
+                                'Dor',
+                                '------',
+                                'Sim',
+                                'Não',
+                              ].map<DropdownMenuItem<String>>((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                );
+                              }).toList(),
                         ),
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: 15,
-                  ),
+                  SizedBox(height: 15),
                   ElevatedButton(
                     onPressed: () {
                       saveForm();
                     },
                     child: Text('Gerar Resultado'),
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.deepOrange,
+                      backgroundColor: Colors.deepOrange,
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 30, vertical: 15),
+                        horizontal: 30,
+                        vertical: 15,
+                      ),
                       textStyle: const TextStyle(
-                          fontSize: 20, fontWeight: FontWeight.bold),
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ), //ELEVATED
-                  SizedBox(
-                    height: 10,
-                  ),
+                  SizedBox(height: 10),
                 ],
               ),
             ),
@@ -699,7 +679,7 @@ class _CirurgicoPageState extends State<CirurgicoPage> {
       "comprimento": dropwdownValueComprimento,
       "profundidade": dropwdownValueProfundidade,
       "sinaisinfeccao": dropwdownValueInfeccao,
-      "dor": dropdownValueDor
+      "dor": dropdownValueDor,
     };
 
     final result = await database!.saveCirurgicoForm(data: data);

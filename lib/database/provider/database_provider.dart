@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
-import 'cirurgico_model.dart';
+import '../models/cirurgico_model.dart';
 
 class OfflineDatabaseProvider {
   static Database? _database;
@@ -38,9 +38,7 @@ class OfflineDatabaseProvider {
     }
   }
 
-  Future<int> saveCirurgicoForm({
-    required Map<String, dynamic> data,
-  }) async {
+  Future<int> saveCirurgicoForm({required Map<String, dynamic> data}) async {
     final db = await database;
 
     try {
@@ -56,7 +54,8 @@ class OfflineDatabaseProvider {
       join(await getDatabasesPath(), 'victoria.db'),
       onCreate: (Database db, int version) async {
         return await db.execute(
-            'CREATE TABLE cirurgico (id INTEGER PRIMARY KEY AUTOINCREMENT, nome_paciente TEXT, data_nascimento TEXT, tempo_internacao TEXT, comorbidades TEXT, fatores_risco TEXT, classificacao TEXT, complexidade TEXT, localizacao TEXT, exsudato TEXT, volumeexsudato TEXT, tecidos TEXT, bordas TEXT, comprimento TEXT, profundidade TEXT, sinaisinfeccao TEXT, dor TEXT )');
+          'CREATE TABLE cirurgico (id INTEGER PRIMARY KEY AUTOINCREMENT, nome_paciente TEXT, data_nascimento TEXT, tempo_internacao TEXT, comorbidades TEXT, fatores_risco TEXT, classificacao TEXT, complexidade TEXT, localizacao TEXT, exsudato TEXT, volumeexsudato TEXT, tecidos TEXT, bordas TEXT, comprimento TEXT, profundidade TEXT, sinaisinfeccao TEXT, dor TEXT )',
+        );
       },
       version: 1,
     );
@@ -67,7 +66,9 @@ class OfflineDatabaseProvider {
 
     try {
       return await db.rawDelete(
-          'DELETE FROM cirurgico WHERE nome_paciente = ?', [nomePaciente]);
+        'DELETE FROM cirurgico WHERE nome_paciente = ?',
+        [nomePaciente],
+      );
     } catch (e) {
       print(e);
       return 0;
