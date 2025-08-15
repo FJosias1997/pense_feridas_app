@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:victoria_form/database/provider/database_provider.dart';
-
-import '../avaliacao_feridas/avaliacao_feridas_page.dart';
-import '../complicacoes/complicacoes_page.dart';
-import '../conceitos/conceitos_page.dart';
+import 'package:victoria_form/enums/dropdowns_enum.dart';
+import 'package:victoria_form/extensions/context_extensions.dart';
+import 'package:victoria_form/widgets/blue_title/default_blue_title.dart';
+import 'package:victoria_form/widgets/drawer/default_drawer_widget.dart';
+import 'package:victoria_form/widgets/dropdown/default_dropdown_widget.dart';
+import 'package:victoria_form/widgets/text_input/default_text_form_field_widget.dart';
 
 class CirurgicoPage extends StatefulWidget {
   const CirurgicoPage({Key? key}) : super(key: key);
@@ -19,17 +21,17 @@ class _CirurgicoPageState extends State<CirurgicoPage> {
   String tempointernacao = '';
   String comorbidades = '';
   String fatoresrisco = '';
-  String dropdownValueClassificacao = 'Classificação';
-  String dropdownValueComplexidade = 'Complexidade';
-  String dropdownValueLA = 'Localização Anatômica';
-  String dropdownValueExsudato = 'Exsudato';
-  String dropdownValuevolumeExsudato = 'Volume de Exsudato';
-  String dropdownValueTecidos = 'Tecidos';
-  String dropwdownValueBordas = 'Bordas';
-  String dropwdownValueComprimento = 'Comprimento';
-  String dropwdownValueProfundidade = 'Profundidade';
-  String dropwdownValueInfeccao = 'Sinais de Infecção';
-  String dropdownValueDor = 'Dor';
+  String dropdownValueClassificacao = Classificacao.selecione.label;
+  String dropdownValueComplexidade = Complexidade.selecione.label;
+  String dropdownValueLA = LocalizacaoAnatomica.selecione.label;
+  String dropdownValueExsudato = Exsudato.selecione.label;
+  String dropdownValuevolumeExsudato = VolumeExsudato.selecione.label;
+  String dropdownValueTecidos = Tecidos.selecione.label;
+  String dropwdownValueBordas = Bordas.selecione.label;
+  String dropwdownValueComprimento = Comprimento.selecione.label;
+  String dropwdownValueProfundidade = Profundidade.selecione.label;
+  String dropwdownValueInfeccao = Infeccao.selecione.label;
+  String dropdownValueDor = Dor.selecione.label;
 
   //Varáveis BD
   TextEditingController nomePacienteController = TextEditingController();
@@ -49,137 +51,26 @@ class _CirurgicoPageState extends State<CirurgicoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Feridas Cirúrgicas'),
-        //automaticallyImplyLeading: false,
-      ),
-      drawer: Drawer(
-        child: ListView(
-          // Important: Remove any padding from the ListView.
-          padding: EdgeInsets.zero,
-          children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                // image: DecorationImage(
-                //   image: AssetImage('assets/images/menu.png'),
-                //   fit: BoxFit.fill,
-                // ),
-                shape: BoxShape.rectangle,
-              ),
-              child: Text(
-                'Pense Feridas',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                ),
-              ),
-            ),
-            ListTile(
-              title: const Text('Conceitos e Classificações'),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ConceitosPage()),
-                );
-              },
-            ),
-            ListTile(
-              title: const Text('Complicações'),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ComplicacoesPage()),
-                );
-              },
-            ),
-            ListTile(
-              title: const Text('Avaliação de Feridas'),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => AvaliacoesFeridasPage(),
-                  ),
-                );
-              },
-            ),
-            ListTile(
-              title: const Text('Atualizações'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text('Referências'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text('Sobre'),
-              onTap: () {
-                showAboutDialog(
-                  context: context,
-                  children: <Widget>[
-                    SizedBox(height: 10),
-                    Text(
-                      'Este aplicativo foi feito com o objetivo de gerar facilidades para os enfermeiros que atuam no cuidado com feridas cirúrgicas complexas.',
-                    ),
-                  ],
-                  applicationIcon: FlutterLogo(),
-                  applicationName: 'Sobre o Pense Feridas',
-                  applicationVersion: '1.0.0',
-                  applicationLegalese: 'Desenvolvido por Josias Félix Studios',
-                );
-              },
-            ),
-          ],
-        ),
-      ),
+      appBar: AppBar(title: Text('Feridas Cirúrgicas')),
+      drawer: DefaultDrawerWidget(),
       body: Material(
         child: SingleChildScrollView(
           child: SizedBox(
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(16),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    margin: const EdgeInsets.all(6.0),
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.blueAccent, width: 3),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Text(
-                      'Cadastro do Paciente',
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        backgroundColor: Colors.blueAccent,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-
+                  DefaultBlueTitle('Cadastro do Paciente'),
                   SizedBox(height: 20),
                   Container(
                     width: MediaQuery.of(context).size.width * 0.9,
-                    child: TextFormField(
+                    child: DefaultTextFormFieldWidget(
+                      textEditingController: nomePacienteController,
+                      labelText: 'Nome do Paciente',
                       onChanged: (text) {
                         nomepaciente = text;
                       },
-                      controller: nomePacienteController,
-                      keyboardType: TextInputType.name,
-                      decoration: InputDecoration(
-                        labelText: 'Nome do Paciente',
-                        border: OutlineInputBorder(),
-                      ),
                     ),
                   ),
                   SizedBox(height: 10),
@@ -188,31 +79,23 @@ class _CirurgicoPageState extends State<CirurgicoPage> {
                     children: [
                       Container(
                         width: MediaQuery.of(context).size.width * 0.4,
-                        child: TextFormField(
+                        child: DefaultTextFormFieldWidget(
+                          textEditingController: dataNascimentoController,
+                          labelText: 'Data de Nascimento',
                           onChanged: (text) {
                             dataNascimento = text;
                           },
-                          controller: dataNascimentoController,
-                          keyboardType: TextInputType.text,
-                          decoration: InputDecoration(
-                            labelText: 'Data de Nascimento',
-                            border: OutlineInputBorder(),
-                          ),
                         ),
                       ),
                       SizedBox(width: 40),
                       Container(
                         width: MediaQuery.of(context).size.width * 0.4,
-                        child: TextFormField(
+                        child: DefaultTextFormFieldWidget(
+                          textEditingController: tempoInternacaoController,
+                          labelText: 'Tempo de Internação',
                           onChanged: (text) {
                             tempointernacao = text;
                           },
-                          controller: tempoInternacaoController,
-                          keyboardType: TextInputType.text,
-                          decoration: InputDecoration(
-                            labelText: 'Tempo de Internação',
-                            border: OutlineInputBorder(),
-                          ),
                         ),
                       ),
                     ],
@@ -220,434 +103,215 @@ class _CirurgicoPageState extends State<CirurgicoPage> {
                   SizedBox(height: 10),
                   Container(
                     width: MediaQuery.of(context).size.width * 0.9,
-                    child: TextFormField(
+                    child: DefaultTextFormFieldWidget(
+                      textEditingController: comorbidadesController,
+                      labelText: 'Comorbidades',
                       onChanged: (text) {
                         comorbidades = text;
                       },
-                      controller: comorbidadesController,
-                      keyboardType: TextInputType.text,
-                      decoration: InputDecoration(
-                        labelText: 'Comorbidades',
-                        border: OutlineInputBorder(),
-                      ),
                     ),
                   ),
                   SizedBox(height: 10),
                   Container(
                     width: MediaQuery.of(context).size.width * 0.9,
-                    child: TextFormField(
+                    child: DefaultTextFormFieldWidget(
+                      textEditingController: fatoresRiscoController,
+                      labelText: 'Fatores de Risco',
                       onChanged: (text) {
                         fatoresrisco = text;
                       },
-                      controller: fatoresRiscoController,
-                      keyboardType: TextInputType.text,
-                      decoration: InputDecoration(
-                        labelText: 'Fatores de Risco',
-                        border: OutlineInputBorder(),
-                      ),
                     ),
                   ),
                   SizedBox(height: 30),
+                  DefaultBlueTitle('Avaliação das Feridas'),
+                  SizedBox(height: 20),
+                  //
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      DefaultDropdownWidget(
+                        value: dropdownValueClassificacao,
+                        width: 0.5,
+                        label: 'Classificação',
+                        items:
+                            Classificacao.values.map((Classificacao c) {
+                              return c.label;
+                            }).toList(),
+                        onChanged: (String? value) {
+                          setState(() {
+                            dropdownValueClassificacao = value!;
+                          });
+                        },
+                      ),
+                      const SizedBox(width: 4),
+                      DefaultDropdownWidget(
+                        value: dropdownValueComplexidade,
+                        width: 0.4,
+                        label: 'Complexidade',
+                        items:
+                            Complexidade.values.map((Complexidade c) {
+                              return c.label;
+                            }).toList(),
+                        onChanged: (String? value) {
+                          setState(() {
+                            dropdownValueComplexidade = value!;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 14),
+                  DefaultDropdownWidget(
+                    value: dropdownValueLA,
 
-                  Container(
-                    margin: const EdgeInsets.all(6.0),
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.blueAccent, width: 3),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Text(
-                      'Avaliação das Feridas',
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        backgroundColor: Colors.blueAccent,
-                        color: Colors.white,
-                      ),
-                    ),
+                    label: 'Localização Anatômica',
+                    items:
+                        LocalizacaoAnatomica.values.map((
+                          LocalizacaoAnatomica l,
+                        ) {
+                          return l.label;
+                        }).toList(),
+                    onChanged: (String? value) {
+                      setState(() {
+                        dropdownValueLA = value!;
+                      });
+                    },
                   ),
-                  SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Container(
-                        child: DropdownButton<String>(
-                          value: dropdownValueClassificacao,
-                          style: const TextStyle(color: Colors.deepOrange),
-                          underline: Container(
-                            height: 2,
-                            color: Colors.deepPurpleAccent,
-                          ),
-                          onChanged: (String? newValue1) {
-                            setState(() {
-                              dropdownValueClassificacao = newValue1!;
-                            });
-                          },
-                          items:
-                              <String>[
-                                'Classificação',
-                                '-------------------------------------',
-                                'Primeira Intenção',
-                                'Segunda Intenção',
-                              ].map<DropdownMenuItem<String>>((String value) {
-                                return DropdownMenuItem<String>(
-                                  value: value,
-                                  child: Text(value),
-                                );
-                              }).toList(),
-                        ),
-                      ),
-                      SizedBox(width: 20),
-                      Container(
-                        child: DropdownButton<String>(
-                          value: dropdownValueComplexidade,
-                          style: const TextStyle(color: Colors.deepOrange),
-                          underline: Container(
-                            height: 2,
-                            color: Colors.deepPurpleAccent,
-                          ),
-                          onChanged: (String? newValue2) {
-                            setState(() {
-                              dropdownValueComplexidade = newValue2!;
-                            });
-                          },
-                          items:
-                              <String>[
-                                'Complexidade',
-                                '--------',
-                                'Simples',
-                                'Complexa',
-                              ].map<DropdownMenuItem<String>>((String value) {
-                                return DropdownMenuItem<String>(
-                                  value: value,
-                                  child: Text(value),
-                                );
-                              }).toList(),
-                        ),
-                      ),
-                      SizedBox(width: 20),
-                    ],
-                  ), // onde devo ir
-                  SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Container(
-                        child: DropdownButton<String>(
-                          value: dropdownValueLA,
-                          style: const TextStyle(color: Colors.deepOrange),
-                          underline: Container(
-                            height: 2,
-                            color: Colors.deepPurpleAccent,
-                          ),
-                          onChanged: (String? newValue3) {
-                            setState(() {
-                              dropdownValueLA = newValue3!;
-                            });
-                          },
-                          items:
-                              <String>[
-                                'Localização Anatômica',
-                                '---------------------',
-                                'Crânio',
-                                'Tórax',
-                                'Abdômen',
-                                'Pelve',
-                                'MMSS',
-                                'MMII',
-                              ].map<DropdownMenuItem<String>>((String value) {
-                                return DropdownMenuItem<String>(
-                                  value: value,
-                                  child: Text(value),
-                                );
-                              }).toList(),
-                        ),
-                      ),
-                      SizedBox(width: 20),
-                      Container(
-                        child: DropdownButton<String>(
-                          value: dropdownValueExsudato,
-                          style: const TextStyle(color: Colors.deepOrange),
-                          underline: Container(
-                            height: 2,
-                            color: Colors.deepPurpleAccent,
-                          ),
-                          onChanged: (String? newValue4) {
-                            setState(() {
-                              dropdownValueExsudato = newValue4!;
-                            });
-                          },
-                          items:
-                              <String>[
-                                'Exsudato',
-                                '-----------',
-                                'Não',
-                                'Seroso',
-                                'Sanguinolento',
-                                'Purulento',
-                                'Piosanguinolento',
-                                'Fibrinoso',
-                              ].map<DropdownMenuItem<String>>((String value) {
-                                return DropdownMenuItem<String>(
-                                  value: value,
-                                  child: Text(value),
-                                );
-                              }).toList(),
-                        ),
-                      ),
-                      SizedBox(width: 20),
-                    ],
-                  ),
-                  SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Container(
-                        child: DropdownButton<String>(
-                          value: dropdownValuevolumeExsudato,
-                          style: const TextStyle(color: Colors.deepOrange),
-                          underline: Container(
-                            height: 2,
-                            color: Colors.deepPurpleAccent,
-                          ),
-                          onChanged: (String? newValue11) {
-                            setState(() {
-                              dropdownValuevolumeExsudato = newValue11!;
-                            });
-                          },
-                          items:
-                              <String>[
-                                'Volume de Exsudato',
-                                '-----------------',
-                                'Pouco (Até 5 Gazes Molhadas)',
-                                'Moderado (De 5 A 10 Gazes Molhadas)',
-                                'Acentuado (Mais De 10 Gazes Molhadas)',
-                              ].map<DropdownMenuItem<String>>((String value) {
-                                return DropdownMenuItem<String>(
-                                  value: value,
-                                  child: Text(value),
-                                );
-                              }).toList(),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        child: DropdownButton<String>(
-                          value: dropdownValueTecidos,
-                          style: const TextStyle(color: Colors.deepOrange),
-                          underline: Container(
-                            height: 2,
-                            color: Colors.deepPurpleAccent,
-                          ),
-                          onChanged: (String? newValue5) {
-                            setState(() {
-                              dropdownValueTecidos = newValue5!;
-                            });
-                          },
-                          items:
-                              <String>[
-                                'Tecidos',
-                                '-----------',
-                                'Granulação',
-                                'Hipergranulação',
-                                'Necrose Seca',
-                                'Esfacelo',
-                              ].map<DropdownMenuItem<String>>((String value) {
-                                return DropdownMenuItem<String>(
-                                  value: value,
-                                  child: Text(value),
-                                );
-                              }).toList(),
-                        ),
-                      ),
-                      SizedBox(width: 20),
+                  SizedBox(height: 14),
+                  DefaultDropdownWidget(
+                    value: dropdownValueExsudato,
 
-                      SizedBox(width: 20),
-                      Container(
-                        child: DropdownButton<String>(
-                          value: dropwdownValueBordas,
-                          style: const TextStyle(color: Colors.deepOrange),
-                          underline: Container(
-                            height: 2,
-                            color: Colors.deepPurpleAccent,
-                          ),
-                          onChanged: (String? newValue6) {
-                            setState(() {
-                              dropwdownValueBordas = newValue6!;
-                            });
-                          },
-                          items:
-                              <String>[
-                                'Bordas',
-                                '-----------',
-                                'Aderida',
-                                'Não Aderida',
-                                'Macerada',
-                                'Indistinta',
-                                'Hiperqueratosa',
-                                'Epibolia',
-                                'Fibrótica',
-                              ].map<DropdownMenuItem<String>>((String value) {
-                                return DropdownMenuItem<String>(
-                                  value: value,
-                                  child: Text(value),
-                                );
-                              }).toList(),
-                        ),
-                      ),
-                      //agora
-                    ],
-                  ), // onde devo ir
-                  SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        child: DropdownButton<String>(
-                          value: dropwdownValueComprimento,
-                          style: const TextStyle(color: Colors.deepOrange),
-                          underline: Container(
-                            height: 2,
-                            color: Colors.deepPurpleAccent,
-                          ),
-                          onChanged: (String? newValue7) {
-                            setState(() {
-                              dropwdownValueComprimento = newValue7!;
-                            });
-                          },
-                          items:
-                              <String>[
-                                'Comprimento',
-                                '-------------',
-                                'Pequena (menor que 50cm2)',
-                                'Média (maior que 50cm2 e menor que 150cm2)',
-                                'Grande (maior que 150 cm2 emenor que 250 cm2)',
-                                'Extensa (maior que 250 cm2)',
-                              ].map<DropdownMenuItem<String>>((String value) {
-                                return DropdownMenuItem<String>(
-                                  value: value,
-                                  child: Text(value),
-                                );
-                              }).toList(),
-                        ),
-                      ),
-                      SizedBox(width: 20),
-                    ],
+                    label: 'Exsudato',
+                    items:
+                        Exsudato.values.map((Exsudato e) {
+                          return e.label;
+                        }).toList(),
+                    onChanged: (String? value) {
+                      setState(() {
+                        dropdownValueExsudato = value!;
+                      });
+                    },
                   ),
-                  SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.4,
-                        child: DropdownButton<String>(
-                          value: dropwdownValueProfundidade,
-                          style: const TextStyle(color: Colors.deepOrange),
-                          underline: Container(
-                            height: 2,
-                            color: Colors.deepPurpleAccent,
-                          ),
-                          onChanged: (String? newValue8) {
-                            setState(() {
-                              dropwdownValueProfundidade = newValue8!;
-                            });
-                          },
-                          items:
-                              <String>[
-                                'Profundidade',
-                                '------------',
-                                'Não Cavitária',
-                                'Cavitária',
-                                'Área de Descolamento',
-                              ].map<DropdownMenuItem<String>>((String value) {
-                                return DropdownMenuItem<String>(
-                                  value: value,
-                                  child: Text(value),
-                                );
-                              }).toList(),
-                        ),
-                      ),
-                      SizedBox(width: 20),
-                      Container(
-                        child: DropdownButton<String>(
-                          value: dropwdownValueInfeccao,
-                          style: const TextStyle(color: Colors.deepOrange),
-                          underline: Container(
-                            height: 2,
-                            color: Colors.deepPurpleAccent,
-                          ),
-                          onChanged: (String? newValue9) {
-                            setState(() {
-                              dropwdownValueInfeccao = newValue9!;
-                            });
-                          },
-                          items:
-                              <String>[
-                                'Sinais de Infecção',
-                                '-----------',
-                                'Calor',
-                                'Rubor',
-                                'Edema',
-                                'Dor',
-                                'Febre',
-                                'Purulento',
-                              ].map<DropdownMenuItem<String>>((String value) {
-                                return DropdownMenuItem<String>(
-                                  value: value,
-                                  child: Text(value),
-                                );
-                              }).toList(),
-                        ),
-                      ),
-                      SizedBox(width: 20),
-                      Container(
-                        child: DropdownButton<String>(
-                          value: dropdownValueDor,
-                          style: const TextStyle(color: Colors.deepOrange),
-                          underline: Container(
-                            height: 2,
-                            color: Colors.deepPurpleAccent,
-                          ),
-                          onChanged: (String? newValue10) {
-                            setState(() {
-                              dropdownValueDor = newValue10!;
-                            });
-                          },
-                          items:
-                              <String>[
-                                'Dor',
-                                '------',
-                                'Sim',
-                                'Não',
-                              ].map<DropdownMenuItem<String>>((String value) {
-                                return DropdownMenuItem<String>(
-                                  value: value,
-                                  child: Text(value),
-                                );
-                              }).toList(),
-                        ),
-                      ),
-                    ],
+
+                  SizedBox(height: 14),
+                  DefaultDropdownWidget(
+                    value: dropdownValuevolumeExsudato,
+                    label: 'Volume Exsudato',
+                    items:
+                        VolumeExsudato.values.map((VolumeExsudato f) {
+                          return f.label;
+                        }).toList(),
+                    onChanged: (String? value) {
+                      setState(() {
+                        dropdownValuevolumeExsudato = value!;
+                      });
+                    },
                   ),
-                  SizedBox(height: 15),
+
+                  SizedBox(height: 14),
+
+                  DefaultDropdownWidget(
+                    value: dropdownValueTecidos,
+                    label: 'Tecido',
+                    items:
+                        Tecidos.values.map((Tecidos f) {
+                          return f.label;
+                        }).toList(),
+                    onChanged: (String? value) {
+                      setState(() {
+                        dropdownValueTecidos = value!;
+                      });
+                    },
+                  ),
+
+                  SizedBox(height: 14),
+
+                  DefaultDropdownWidget(
+                    value: dropwdownValueBordas,
+                    label: 'Bordas',
+                    items:
+                        Bordas.values.map((Bordas f) {
+                          return f.label;
+                        }).toList(),
+                    onChanged: (String? value) {
+                      setState(() {
+                        dropwdownValueBordas = value!;
+                      });
+                    },
+                  ),
+                  SizedBox(height: 14),
+                  DefaultDropdownWidget(
+                    value: dropwdownValueComprimento,
+                    label: 'Comprimento',
+                    items:
+                        Comprimento.values.map((Comprimento f) {
+                          return f.label;
+                        }).toList(),
+                    onChanged: (String? value) {
+                      setState(() {
+                        dropwdownValueComprimento = value!;
+                      });
+                    },
+                  ),
+                  SizedBox(height: 14),
+                  DefaultDropdownWidget(
+                    value: dropwdownValueProfundidade,
+                    label: 'Profundidade',
+                    items:
+                        Profundidade.values.map((Profundidade f) {
+                          return f.label;
+                        }).toList(),
+                    onChanged: (String? value) {
+                      setState(() {
+                        dropwdownValueProfundidade = value!;
+                      });
+                    },
+                  ),
+                  SizedBox(height: 14),
+                  DefaultDropdownWidget(
+                    value: dropwdownValueInfeccao,
+                    label: 'Sinais de Infecção',
+                    items:
+                        Infeccao.values.map((Infeccao f) {
+                          return f.label;
+                        }).toList(),
+                    onChanged: (String? value) {
+                      setState(() {
+                        dropwdownValueInfeccao = value!;
+                      });
+                    },
+                  ),
+                  SizedBox(height: 14),
+                  DefaultDropdownWidget(
+                    value: dropdownValueDor,
+                    label: 'Dor',
+                    items:
+                        Dor.values.map((Dor f) {
+                          return f.label;
+                        }).toList(),
+                    onChanged: (String? value) {
+                      setState(() {
+                        dropdownValueDor = value!;
+                      });
+                    },
+                  ),
+
                   ElevatedButton(
                     onPressed: () {
                       saveForm();
                     },
                     child: Text('Gerar Resultado'),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.deepOrange,
+                      backgroundColor: Colors.blueAccent,
+
                       padding: const EdgeInsets.symmetric(
                         horizontal: 30,
                         vertical: 15,
                       ),
-                      textStyle: const TextStyle(
+                      textStyle: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
+                        color: context.theme.colorScheme.onPrimary,
                       ),
                     ),
                   ), //ELEVATED
