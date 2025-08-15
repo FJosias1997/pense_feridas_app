@@ -48,6 +48,31 @@ class _CirurgicoPageState extends State<CirurgicoPage> {
     super.initState();
   }
 
+  saveForm() async {
+    Map<String, dynamic> data = {
+      "nome_paciente": nomePacienteController.text,
+      "data_nascimento": dataNascimentoController.text,
+      "tempo_internacao": tempoInternacaoController.text,
+      "comorbidades": comorbidadesController.text,
+      "fatores_risco": fatoresRiscoController.text,
+      "classificacao": dropdownValueClassificacao,
+      "complexidade": dropdownValueComplexidade,
+      "localizacao": dropdownValueLA,
+      "exsudato": dropdownValueExsudato,
+      "volumeexsudato": dropdownValuevolumeExsudato,
+      "tecidos": dropdownValueTecidos,
+      "bordas": dropwdownValueBordas,
+      "comprimento": dropwdownValueComprimento,
+      "profundidade": dropwdownValueProfundidade,
+      "sinaisinfeccao": dropwdownValueInfeccao,
+      "dor": dropdownValueDor,
+    };
+
+    final result = await database!.saveCirurgicoForm(data: data);
+
+    Navigator.of(context).pop(result);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -323,30 +348,5 @@ class _CirurgicoPageState extends State<CirurgicoPage> {
         ),
       ),
     );
-  }
-
-  saveForm() async {
-    Map<String, dynamic> data = {
-      "nome_paciente": nomePacienteController.text,
-      "data_nascimento": dataNascimentoController.text,
-      "tempo_internacao": tempoInternacaoController.text,
-      "comorbidades": comorbidadesController.text,
-      "fatores_risco": fatoresRiscoController.text,
-      "classificacao": dropdownValueClassificacao,
-      "complexidade": dropdownValueComplexidade,
-      "localizacao": dropdownValueLA,
-      "exsudato": dropdownValueExsudato,
-      "volumeexsudato": dropdownValuevolumeExsudato,
-      "tecidos": dropdownValueTecidos,
-      "bordas": dropwdownValueBordas,
-      "comprimento": dropwdownValueComprimento,
-      "profundidade": dropwdownValueProfundidade,
-      "sinaisinfeccao": dropwdownValueInfeccao,
-      "dor": dropdownValueDor,
-    };
-
-    final result = await database!.saveCirurgicoForm(data: data);
-
-    Navigator.of(context).pop(result);
   }
 }
