@@ -9,13 +9,6 @@
   <img alt="Marco" src="https://img.shields.io/badge/Marco-Primeiro%20Projeto%20Flutter-informational.svg?logo=rocket">
   <br>
   <img alt="Pacotes" src="https://img.shields.io/badge/Packages-sqflite%20|%20flutter_speed_dial-blueviolet.svg">
-  
-  <a href="https://github.com/seu-usuario/pense-feridas/blob/main/LICENSE">
-    <img alt="Licença" src="https://img.shields.io/github/license/seu-usuario/pense-feridas">
-  </a>
-  <img alt="Último Commit" src="https://img.shields.io/github/last-commit/seu-usuario/pense-feridas">
-  <a href="https://github.com/seu-usuario/pense-feridas/stargazers">
-    <img alt="GitHub Stars" src="https://img.shields.io/github/stars/seu-usuario/pense-feridas?style=social">
   </a>
 </p>
 
