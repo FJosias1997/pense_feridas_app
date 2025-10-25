@@ -1,4 +1,4 @@
-## Pense Feridas 🩺
+# Pense Feridas 🩺
 
 <p align="center">
   <img alt="Linguagem" src="https://img.shields.io/badge/Language-Dart-00B4AB.svg?logo=dart&logoColor=white">
@@ -9,7 +9,6 @@
   <img alt="Marco" src="https://img.shields.io/badge/Marco-Primeiro%20Projeto%20Flutter-informational.svg?logo=rocket">
   <br>
   <img alt="Pacotes" src="https://img.shields.io/badge/Packages-sqflite%20|%20flutter_speed_dial-blueviolet.svg">
-  </a>
 </p>
 
 Um aplicativo móvel desenvolvido em Flutter para auxiliar profissionais de enfermagem no manejo e tratamento de feridas oncológicas. O app permite criar fichas de pacientes, avaliar feridas e sugere condutas de tratamento com base nos dados inseridos.
@@ -24,23 +23,15 @@ O objetivo principal do Pense Feridas é servir como uma ferramenta de bolso par
 
 ## ✨ Funcionalidades Principais
 
-    Cadastro de Fichas de Pacientes: Salve registros de pacientes e suas avaliações.
-
-    Avaliação Detalhada de Feridas: Um formulário completo com dropdowns para selecionar:
-
-        Complexidade
-
-        Localização Anatômica
-
-        Tipo de Exsudato e Volume
-
-        Tecidos, Bordas, Profundidade e mais.
-
-    Sugestão de Conduta: Com base na avaliação preenchida, o app exibe uma "Terapia Proposta" com os passos recomendados para o cuidado da ferida.
-
-    Consulta Rápida: Uma seção de "Artigos" com textos sobre Conceitos, Classificações e Complicações de feridas.
-
-    Armazenamento Local: Todas as fichas são salvas diretamente no dispositivo usando sqflite.
+* **Cadastro de Fichas de Pacientes:** Salve registros de pacientes e suas avaliações.
+* **Avaliação Detalhada de Feridas:** Um formulário completo com dropdowns para selecionar:
+    * Complexidade
+    * Localização Anatômica
+    * Tipo de Exsudato e Volume
+    * Tecidos, Bordas, Profundidade e mais.
+* **Sugestão de Conduta:** Com base na avaliação preenchida, o app exibe uma "Terapia Proposta" com os passos recomendados para o cuidado da ferida.
+* **Consulta Rápida:** Uma seção de "Artigos" com textos sobre Conceitos, Classificações e Complicações de feridas.
+* **Armazenamento Local:** Todas as fichas são salvas diretamente no dispositivo usando `sqflite`.
 
 ## 📱 Demonstração Ao Vivo
 
@@ -130,23 +121,23 @@ if (form.classificacao! == Classificacao.primeiraIntencao.label &&
     Assets de Imagens: As imagens originais usadas na seção de artigos (ex: "Avaliação de Feridas") foram perdidas. Atualmente, o app exibe um erro de "Asset not found" nesses locais. Novas imagens precisam ser adicionadas ao diretório assets/images/ para corrigir o problema.
     Lógica de Condutas Rígida (Hardcoded): A geração de condutas é basea em um bloco if/else estático com 13 regras. O app não possui um sistema dinâmico de regras. Se uma ficha não se encaixar perfeitamente em uma das 13 combinações, nenhuma conduta será gerada. Esta é uma grande oportunidade de melhoria para uma futura versão.
 
-🚀 Como Executar o Projeto
+## 🚀 Como Executar o Projeto
 
-## 1. Clone o repositório:
-```bash
-git clone https://github.com/seu-usuario/pense-feridas.git
-cd pense-feridas
-```
+1.  **Clone o repositório:**
+    ```bash
+    git clone https://github.com/FJosias1997/pense_feridas_app.git
+    cd pense_feridas_app
+    ```
 
-## 2. Instale as dependências:
-```bash
-flutter pub get
-```
+2.  **Instale as dependências:**
+    ```bash
+    flutter pub get
+    ```
 
-## 3.Execute o aplicativo:
-```bash
-flutter run
-```
+3.  **Execute o aplicativo:**
+    ```bash
+    flutter run
+    ```
 
 ## 👨‍💻 Autor
 
