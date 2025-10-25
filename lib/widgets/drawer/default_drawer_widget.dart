@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:victoria_form/pages/avaliacao_feridas/avaliacao_feridas_page.dart';
-import 'package:victoria_form/pages/complicacoes/complicacoes_page.dart';
-import 'package:victoria_form/pages/conceitos/conceitos_page.dart';
+import 'package:pense_feridas_app/extensions/context_extensions.dart';
+import 'package:pense_feridas_app/pages/avaliacao_feridas/avaliacao_feridas_page.dart';
+import 'package:pense_feridas_app/pages/complicacoes/complicacoes_page.dart';
+import 'package:pense_feridas_app/pages/conceitos/conceitos_page.dart';
+import 'package:pense_feridas_app/widgets/dialogs/show_about_dialog.dart';
 
 class DefaultDrawerWidget extends StatelessWidget {
   const DefaultDrawerWidget({super.key});
@@ -20,12 +22,11 @@ class DefaultDrawerWidget extends StatelessWidget {
               ),
               shape: BoxShape.rectangle,
             ),
-            child: const Text(
+            child: Text(
               'Pense Feridas',
-              style: TextStyle(
-                color: Colors.white,
+              style: context.theme.textTheme.titleLarge?.copyWith(
                 fontWeight: FontWeight.bold,
-                fontSize: 20,
+                color: context.theme.colorScheme.surface,
               ),
             ),
           ),
@@ -59,34 +60,8 @@ class DefaultDrawerWidget extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('Atualizações'),
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            title: const Text('Referências'),
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
             title: const Text('Sobre'),
-            onTap: () {
-              showAboutDialog(
-                context: context,
-                children: <Widget>[
-                  SizedBox(height: 10),
-                  Text(
-                    'Este aplicativo foi feito com o objetivo de gerar facilidades para os enfermeiros que atuam no cuidado com feridas cirúrgicas complexas.',
-                  ),
-                ],
-                applicationIcon: FlutterLogo(),
-                applicationName: 'Sobre o Pense Feridas',
-                applicationVersion: '1.0.0',
-                applicationLegalese: 'Desenvolvido por Josias Félix Studios',
-              );
-            },
+            onTap: () => ShowAboutDialogService().aboutDialog(context: context),
           ),
         ],
       ),

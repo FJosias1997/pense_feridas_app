@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:victoria_form/pages/ficha/ficha_page.dart';
-import 'package:victoria_form/theme/app_theme.dart';
+import 'package:pense_feridas_app/pages/ficha/ficha_page.dart';
+import 'package:pense_feridas_app/theme/app_theme.dart';
 
 import 'pages/avaliacao_feridas/avaliacao_feridas_page.dart';
 import 'pages/form_cirurgico/cirurgico_form_page.dart';
@@ -13,6 +13,7 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Pense Feridas',
+      debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
         '/': (context) => HomePage(),

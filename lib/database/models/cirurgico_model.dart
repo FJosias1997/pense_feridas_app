@@ -16,22 +16,6 @@ class CirurgicoModel {
   String? sinaisInfeccao;
   String? dor;
 
-  //"nome_paciente": nomePacienteController.text,
-  //  "data_nascimento": dataNascimentoController.text,
-  //"tempo_internacao": tempoInternacaoController.text,
-  //"comorbidades": comorbidadesController.text,
-  //"fatores_risco": fatoresRiscoController.text,
-  //"classificacao": dropdownValueClassificacao,
-  //"complexidade": dropdownValueComplexidade,
-  //"localizacao": dropdownValueLA,
-  //"exsudato": dropdownValueExsudato,
-  //"tecidos": dropdownValueTecidos,
-  //"bordas": dropwdownValueBordas,
-  //"comprimento": dropwdownValueComprimento,
-  //"profundidade": dropwdownValueProfundidade,
-  //"sinaisinfeccao": dropwdownValueInfeccao,
-  //"dor": dropdownValueDor
-
   CirurgicoModel({
     this.nomePaciente,
     this.dataNascimento,
@@ -74,16 +58,4 @@ class CirurgicoModel {
       dor: json['dor'],
     );
   }
-
-  // Map<String, dynamic> toJson() {
-  //   return {
-  //     'abbrev': this.abbrev,
-  //     'author': this.author,
-  //     'chapters': this.chapters,
-  //     'comment': this.comment,
-  //     'group_name': this.group,
-  //     'name': this.name,
-  //     'testament': this.testament,
-  //   };
-  // }
 }

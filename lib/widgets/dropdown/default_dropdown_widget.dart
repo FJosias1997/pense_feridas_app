@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pense_feridas_app/extensions/context_extensions.dart';
 
 class DefaultDropdownWidget extends StatefulWidget {
   final String? value;
@@ -27,11 +28,33 @@ class _DefaultDropdownWidgetState extends State<DefaultDropdownWidget> {
       width: MediaQuery.of(context).size.width * widget.width!,
       child: DropdownButtonFormField<String>(
         value: widget.value,
+
         decoration: InputDecoration(
-          labelText: widget.label, // aqui é a label
-          border: OutlineInputBorder(),
+          fillColor: context.theme.colorScheme.surface,
+          labelText: widget.label,
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: BorderSide(
+              color: Colors.grey.withValues(alpha: 0.5), // quase invisível
+            ),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: BorderSide(
+              color: context.theme.colorScheme.primary.withValues(alpha: 0.2),
+              width: 1.5,
+            ),
+          ),
+
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: BorderSide(
+              color: Colors.transparent, // para o estado padrão
+            ),
+          ),
         ),
-        style: const TextStyle(color: Colors.deepOrange),
+
+        style: TextStyle(color: context.theme.colorScheme.primary),
         onChanged: widget.onChanged,
         items:
             widget.items?.map<DropdownMenuItem<String>>((String value) {

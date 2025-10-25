@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pense_feridas_app/extensions/context_extensions.dart';
 
 class DefaultTextFormFieldWidget extends StatefulWidget {
   final TextEditingController? textEditingController;
@@ -25,8 +26,30 @@ class _DefaultTextFormFieldWidgetState
       controller: widget.textEditingController,
       keyboardType: TextInputType.name,
       decoration: InputDecoration(
+        hoverColor: context.theme.colorScheme.primary,
+        floatingLabelStyle: TextStyle(color: context.theme.colorScheme.primary),
         labelText: widget.labelText,
-        border: OutlineInputBorder(),
+        labelStyle: TextStyle(color: context.theme.colorScheme.inverseSurface),
+        fillColor: context.theme.colorScheme.surface,
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: BorderSide(
+            color: Colors.grey.withValues(alpha: .5), // quase invisível
+          ),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: BorderSide(
+            color: context.theme.colorScheme.primary.withValues(alpha: 0.2),
+            width: 1.5,
+          ),
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: BorderSide(
+            color: Colors.transparent, // para o estado padrão
+          ),
+        ),
       ),
     );
   }

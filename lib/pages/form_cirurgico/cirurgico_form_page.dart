@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:victoria_form/database/provider/database_provider.dart';
-import 'package:victoria_form/enums/dropdowns_enum.dart';
-import 'package:victoria_form/extensions/context_extensions.dart';
-import 'package:victoria_form/widgets/blue_title/default_blue_title.dart';
-import 'package:victoria_form/widgets/drawer/default_drawer_widget.dart';
-import 'package:victoria_form/widgets/dropdown/default_dropdown_widget.dart';
-import 'package:victoria_form/widgets/text_input/default_text_form_field_widget.dart';
+import 'package:pense_feridas_app/database/provider/database_provider.dart';
+import 'package:pense_feridas_app/enums/dropdowns_enum.dart';
+import 'package:pense_feridas_app/extensions/context_extensions.dart';
+import 'package:pense_feridas_app/widgets/buttons/default_button_widget.dart';
+import 'package:pense_feridas_app/widgets/dropdown/default_dropdown_widget.dart';
+import 'package:pense_feridas_app/widgets/text_input/default_text_form_field_widget.dart';
 
 class CirurgicoPage extends StatefulWidget {
   const CirurgicoPage({Key? key}) : super(key: key);
@@ -15,7 +14,6 @@ class CirurgicoPage extends StatefulWidget {
 }
 
 class _CirurgicoPageState extends State<CirurgicoPage> {
-  //Variáveis de Inicialização
   String nomepaciente = '';
   String dataNascimento = '';
   String tempointernacao = '';
@@ -33,7 +31,6 @@ class _CirurgicoPageState extends State<CirurgicoPage> {
   String dropwdownValueInfeccao = Infeccao.selecione.label;
   String dropdownValueDor = Dor.selecione.label;
 
-  //Varáveis BD
   TextEditingController nomePacienteController = TextEditingController();
   TextEditingController dataNascimentoController = TextEditingController();
   TextEditingController tempoInternacaoController = TextEditingController();
@@ -76,8 +73,10 @@ class _CirurgicoPageState extends State<CirurgicoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Feridas Cirúrgicas')),
-      drawer: DefaultDrawerWidget(),
+      appBar: AppBar(
+        title: Text('Feridas Cirúrgicas'),
+        automaticallyImplyLeading: true,
+      ),
       body: Material(
         child: SingleChildScrollView(
           child: SizedBox(
@@ -86,7 +85,12 @@ class _CirurgicoPageState extends State<CirurgicoPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  DefaultBlueTitle('Cadastro do Paciente'),
+                  Text(
+                    'Cadastro do Paciente',
+                    style: context.theme.textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                   SizedBox(height: 20),
                   Container(
                     width: MediaQuery.of(context).size.width * 0.9,
@@ -148,7 +152,12 @@ class _CirurgicoPageState extends State<CirurgicoPage> {
                     ),
                   ),
                   SizedBox(height: 30),
-                  DefaultBlueTitle('Avaliação das Feridas'),
+                  Text(
+                    'Avaliação das Feridas',
+                    style: context.theme.textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                   SizedBox(height: 20),
                   //
                   Row(
@@ -321,25 +330,14 @@ class _CirurgicoPageState extends State<CirurgicoPage> {
                     },
                   ),
 
-                  ElevatedButton(
-                    onPressed: () {
+                  SizedBox(height: 24),
+
+                  DefaultButtonWidget(
+                    title: 'Salvar',
+                    onTap: () {
                       saveForm();
                     },
-                    child: Text('Gerar Resultado'),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blueAccent,
-
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 30,
-                        vertical: 15,
-                      ),
-                      textStyle: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: context.theme.colorScheme.onPrimary,
-                      ),
-                    ),
-                  ), //ELEVATED
+                  ),
                   SizedBox(height: 10),
                 ],
               ),

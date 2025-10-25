@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:victoria_form/database/models/cirurgico_model.dart';
-import 'package:victoria_form/database/provider/database_provider.dart';
-import 'package:victoria_form/extensions/context_extensions.dart';
-import 'package:victoria_form/widgets/drawer/default_drawer_widget.dart';
-import 'package:victoria_form/widgets/speed_dial/default_speed_dial_widget.dart';
-import '../ficha/ficha_page.dart';
+import 'package:pense_feridas_app/database/models/cirurgico_model.dart';
+import 'package:pense_feridas_app/database/provider/database_provider.dart';
+import 'package:pense_feridas_app/extensions/context_extensions.dart';
+import 'package:pense_feridas_app/pages/ficha/ficha_page.dart';
+import 'package:pense_feridas_app/widgets/drawer/default_drawer_widget.dart';
+import 'package:pense_feridas_app/widgets/speed_dial/default_speed_dial_widget.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -59,21 +59,19 @@ class HomePageState extends State<HomePage> {
     child: Scaffold(
       key: key,
       appBar: AppBar(title: Text('Pense Feridas')),
-      //parte do menu lateral
       drawer: DefaultDrawerWidget(),
-      //fim do menu lateral
+
       body:
           isLoading
               ? Center(child: CircularProgressIndicator())
               : list == null
-              ? Center(child: Text('Sem dados'))
+              ? Center(child: Text('Não há registros de fichas por aqui'))
               : list!.length == 0
-              ? Center(child: Text('Sem dados'))
+              ? Center(child: Text('Não há registros de fichas por aqui'))
               : ListView.builder(
                 itemCount: list!.length,
                 itemBuilder: (_, index) {
                   return Container(
-                    //Codigo do card
                     child: Card(
                       color: Colors.white,
                       elevation: 2.0,
@@ -85,29 +83,18 @@ class HomePageState extends State<HomePage> {
                         title: Text('${list![index].nomePaciente}'),
                         subtitle: Text('${list![index].dataNascimento}'),
                         trailing: IconButton(
-                          onPressed: () {
-                            _deleteRecord(list![index].nomePaciente!);
-                            //'${list![index].nomePaciente}'
-                          },
+                          onPressed:
+                              () => _deleteRecord(list![index].nomePaciente!),
+
                           icon: Icon(Icons.delete, color: Colors.grey),
                         ),
-                        onTap: () {
-                          print("Card Tapped");
-
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder:
-                                  (context) =>
-                                      FichaPage(cirurgico: list![index]),
+                        onTap:
+                            () => context.goPush(
+                              FichaPage(cirurgico: list![index]),
                             ),
-                          );
-                        },
                       ),
                     ),
                   );
-
-                  //......
                 },
               ),
       floatingActionButton: DefaultSpeedDialWidget(

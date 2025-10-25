@@ -14,7 +14,6 @@ class OfflineDatabaseProvider {
   Future<Database> get database async {
     if (_database != null) return _database!;
 
-    // if _database is null we instantiate it
     _database = await initDatabase();
     return _database!;
   }
@@ -25,7 +24,7 @@ class OfflineDatabaseProvider {
     try {
       final List<CirurgicoModel> cirurgicoList = [];
 
-      final List<Map<String, dynamic>> list = await db.query('cirurgico');
+      final List<Map<String, dynamic>> list = await db.query('cirurgico_form');
 
       list.forEach((element) {
         cirurgicoList.add(CirurgicoModel.fromJson(json: element));
@@ -42,7 +41,7 @@ class OfflineDatabaseProvider {
     final db = await database;
 
     try {
-      return await db.insert('cirurgico', data);
+      return await db.insert('cirurgico_form', data);
     } catch (e) {
       print(e);
       return 0;
@@ -51,11 +50,18 @@ class OfflineDatabaseProvider {
 
   Future<Database> initDatabase() async {
     return await openDatabase(
-      join(await getDatabasesPath(), 'victoria.db'),
+      join(await getDatabasesPath(), 'pense_feridas.db'),
       onCreate: (Database db, int version) async {
-        return await db.execute(
-          'CREATE TABLE cirurgico (id INTEGER PRIMARY KEY AUTOINCREMENT, nome_paciente TEXT, data_nascimento TEXT, tempo_internacao TEXT, comorbidades TEXT, fatores_risco TEXT, classificacao TEXT, complexidade TEXT, localizacao TEXT, exsudato TEXT, volumeexsudato TEXT, tecidos TEXT, bordas TEXT, comprimento TEXT, profundidade TEXT, sinaisinfeccao TEXT, dor TEXT )',
-        );
+        return await db.execute('''CREATE TABLE cirurgico_form (
+            id INTEGER PRIMARY KEY AUTOINCREMENT, 
+            nome_paciente TEXT, data_nascimento TEXT, 
+            tempo_internacao TEXT, comorbidades TEXT, 
+            fatores_risco TEXT, classificacao TEXT, 
+            complexidade TEXT, localizacao TEXT, 
+            exsudato TEXT, volumeexsudato TEXT, 
+            tecidos TEXT, bordas TEXT, 
+            comprimento TEXT, profundidade TEXT, 
+            sinaisinfeccao TEXT, dor TEXT )''');
       },
       version: 1,
     );
@@ -66,7 +72,7 @@ class OfflineDatabaseProvider {
 
     try {
       return await db.rawDelete(
-        'DELETE FROM cirurgico WHERE nome_paciente = ?',
+        'DELETE FROM cirurgico_form WHERE nome_paciente = ?',
         [nomePaciente],
       );
     } catch (e) {
@@ -75,21 +81,3 @@ class OfflineDatabaseProvider {
     }
   }
 }
-
-
- /*
-nomePaciente: json['nome_paciente'],
-      dataNascimento: json['data_nascimento'],
-      tempoInternacao: json['tempo_internacao'],
-      comorbidades: json['comorbidades'],
-      complexidade: json['complexidade'],
-      localizacao: json['localizacao'],
-      exsudato: json['exsudato'],
-      tecidos: json['tecidos'],
-      bordas: json['bordas'],
-      comprimento: json['comprimento'],
-      profundidade: json['profundidade'],
-      dor: json['dor'],
-
-
- */

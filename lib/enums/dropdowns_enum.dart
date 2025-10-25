@@ -17,6 +17,7 @@ enum Exsudato {
   nao,
   seroso,
   serosanguinolento,
+  sanguinolento,
   purulento,
   fibrinoso,
   piosanguinolento,
@@ -101,6 +102,8 @@ extension ExsudatoExt on Exsudato {
         return 'Não';
       case Exsudato.seroso:
         return 'Seroso';
+      case Exsudato.sanguinolento:
+        return 'Sanguinolento';
       case Exsudato.serosanguinolento:
         return 'Serosanguinolento';
       case Exsudato.purulento:
