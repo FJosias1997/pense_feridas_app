@@ -1,14 +1,23 @@
 ## Pense Feridas 🩺
 
-<p align="center"> <a href="https://flutter.dev/"> <img alt="Construído com Flutter" src="https://img.shields.io/badge/built%20with-Flutter-02569B.svg?logo=flutter&logoColor=white"> </a>
-
-<a href="https://github.com/seu-usuario/pense-feridas/blob/main/LICENSE"> <img alt="Licença" src="https://img.shields.io/github/license/seu-usuario/pense-feridas"> </a>
-
-<img alt="Último Commit" src="https://img.shields.io/github/last-commit/seu-usuario/pense-feridas">
-
-<img alt="Tamanho do Repositório" src="https://img.shields.io/github/repo-size/seu-usuario/pense-feridas">
-
-<a href="https://github.com/seu-usuario/pense-feridas/stargazers"> <img alt="GitHub Stars" src="https://img.shields.io/github/stars/seu-usuario/pense-feridas?style=social"> </a> </p>
+<p align="center">
+  <img alt="Linguagem" src="https://img.shields.io/badge/Language-Dart-00B4AB.svg?logo=dart&logoColor=white">
+  <a href="https://flutter.dev/">
+    <img alt="Framework" src="https://img.shields.io/badge/Framework-Flutter-02569B.svg?logo=flutter&logoColor=white">
+  </a>
+  <img alt="Status" src="https://img.shields.io/badge/Status-Concluído-success.svg">
+  <img alt="Marco" src="https://img.shields.io/badge/Marco-Primeiro%20Projeto%20Flutter-informational.svg?logo=rocket">
+  <br>
+  <img alt="Pacotes" src="https://img.shields.io/badge/Packages-sqflite%20|%20flutter_speed_dial-blueviolet.svg">
+  
+  <a href="https://github.com/seu-usuario/pense-feridas/blob/main/LICENSE">
+    <img alt="Licença" src="https://img.shields.io/github/license/seu-usuario/pense-feridas">
+  </a>
+  <img alt="Último Commit" src="https://img.shields.io/github/last-commit/seu-usuario/pense-feridas">
+  <a href="https://github.com/seu-usuario/pense-feridas/stargazers">
+    <img alt="GitHub Stars" src="https://img.shields.io/github/stars/seu-usuario/pense-feridas?style=social">
+  </a>
+</p>
 
 Um aplicativo móvel desenvolvido em Flutter para auxiliar profissionais de enfermagem no manejo e tratamento de feridas oncológicas. O app permite criar fichas de pacientes, avaliar feridas e sugere condutas de tratamento com base nos dados inseridos.
 
