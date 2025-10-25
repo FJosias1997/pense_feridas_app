@@ -22,46 +22,6 @@ Recentemente, o projeto foi totalmente refatorado. O código original, embora fu
 
 O objetivo principal do Pense Feridas é servir como uma ferramenta de bolso para enfermeiros, facilitando o registro sistemático de avaliações de feridas e fornecendo um guia rápido de condutas terapêuticas.
 
-Com certeza! Adicionar badges do Shields.io dá um toque muito profissional ao README.
-
-Eu vou adicionar um conjunto de badges relevantes para um repositório GitHub de um projeto Flutter. Eles incluem:
-
-    Built with Flutter: Um badge estático que mostra a tecnologia principal.
-
-    License: Um badge dinâmico que lê o arquivo LICENSE do seu repositório (vou usar 'MIT' como exemplo).
-
-    Last Commit: Mostra a data do último commit, indicando atividade.
-
-    Repo Size: Mostra o tamanho do repositório.
-
-    GitHub Stars: Encoraja o engajamento.
-
-Aqui está o README.md atualizado com a seção de badges no topo.
-
-IMPORTANTE: Para os badges dinâmicos funcionarem, você precisa substituir seu-usuario e pense-feridas nos links das imagens pelo seu nome de usuário e o nome do seu repositório no GitHub.
-
-Pense Feridas 🩺
-
-<p align="center"> <a href="https://flutter.dev/"> <img alt="Construído com Flutter" src="https://img.shields.io/badge/built%20with-Flutter-02569B.svg?logo=flutter&logoColor=white"> </a>
-
-<a href="https://github.com/seu-usuario/pense-feridas/blob/main/LICENSE"> <img alt="Licença" src="https://img.shields.io/github/license/seu-usuario/pense-feridas"> </a>
-
-<img alt="Último Commit" src="https://img.shields.io/github/last-commit/seu-usuario/pense-feridas">
-
-<img alt="Tamanho do Repositório" src="https://img.shields.io/github/repo-size/seu-usuario/pense-feridas">
-
-<a href="https://github.com/seu-usuario/pense-feridas/stargazers"> <img alt="GitHub Stars" src="https://img.shields.io/github/stars/seu-usuario/pense-feridas?style=social"> </a> </p>
-
-Um aplicativo móvel desenvolvido em Flutter para auxiliar profissionais de enfermagem no manejo e tratamento de feridas oncológicas. O app permite criar fichas de pacientes, avaliar feridas e sugere condutas de tratamento com base nos dados inseridos.
-
-## 📖 Sobre o Projeto
-
-Este foi o meu primeiro projeto oficial desenvolvido com Flutter. Ele foi criado originalmente para o Trabalho de Conclusão de Curso (TCC) de Enfermagem de uma colega da Universidade Federal do Pará (UFPA).
-
-Recentemente, o projeto foi totalmente refatorado. O código original, embora funcional, estava desatualizado e precisava de melhorias. Esta nova versão implementa uma arquitetura mais limpa, atualiza dependências e aplica melhores práticas de desenvolvimento em Flutter.
-
-O objetivo principal do Pense Feridas é servir como uma ferramenta de bolso para enfermeiros, facilitando o registro sistemático de avaliações de feridas e fornecendo um guia rápido de condutas terapêuticas.
-
 ## ✨ Funcionalidades Principais
 
     Cadastro de Fichas de Pacientes: Salve registros de pacientes e suas avaliações.
@@ -87,8 +47,6 @@ O objetivo principal do Pense Feridas é servir como uma ferramenta de bolso par
 ![Adobe Express - Gravação de Tela 2025-10-25 às 17 14 12](https://github.com/user-attachments/assets/1ce30c0d-468f-4539-8b12-a2613e6e58eb)
 ![Adobe Express - Gravação de Tela 2025-10-25 às 17 15 45](https://github.com/user-attachments/assets/c0c6f2ec-3bd9-443b-a2bc-c25340e5fc6d)
 ![Adobe Express - Gravação de Tela 2025-10-25 às 17 14 56(1)](https://github.com/user-attachments/assets/dc3ba119-772a-4fe0-90f1-fa5f231637f2)
-
-
 
 ## 🛠️ Tecnologias Utilizadas
 
